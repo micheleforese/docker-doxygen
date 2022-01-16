@@ -2,6 +2,11 @@
 FROM debian:11 AS build
 
 LABEL mantainer="Michele Forese"
+LABEL email="michele.forese.personal@gmail.com"
+LABEL name="doxygen"
+LABEL version="0.1"
+
+ENV DEBIAN_FRONTEND noninteractive
 
 ARG DOXYGEN_SOURCE_TAG=Release_1_9_0
 ARG SPHINX_SOURCE_BRANCH=4.x
@@ -10,16 +15,16 @@ ARG GRAPHVIZ_SOURCE_TAG=stable_release_2.44.0
 CMD ["/bin/sh"]
 
 RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    git \
-    python3.9 \
-    python3-pip \
-    g++ \
-    build-essential \
-    flex \
-    bison \
-    cmake \
-    graphviz \
+  && apt-get install -y \
+  git \
+  python3.9 \
+  python3-pip \
+  g++ \
+  build-essential \
+  flex \
+  bison \
+  cmake \
+  graphviz \
   && rm -rf /var/lib/apt/lists/*
 
 # Create the folders for the installations
