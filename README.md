@@ -3,7 +3,7 @@
 ## Doxygen
 
 ```sh
-docker run --rm -v "D:/dev/code/cpp-cross-compiling":/src -it test/doxygen doxygen
+docker run --rm -v "$(pwd -W)":/src -it test/doxygen doxygen
 ```
 
 ## Building the Image
